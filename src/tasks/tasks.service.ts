@@ -15,7 +15,7 @@ export class TasksService {
 
         const job = new CronJob(timing, () => {
             this.logger.log(message);
-            bot.channel.send(message)
+            // bot.channel.send(message)
         });
 
         this.schedulerRegistry.addCronJob(name, job);
