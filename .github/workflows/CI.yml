@@ -1,24 +1,3 @@
-name: Deploy to Heroku
-uses: AkhileshNS/heroku-deploy@v3.0.4
-with:
-    # This will be used for authentication. You can find it in your heroku homepage account settings
-    heroku_api_key: e2a19921-3878-477f-bb83-27662dc28b5c
-    # Email that you use with heroku
-    heroku_email: peter.chau.esq@gmail.com
-    # The appname to use for deploying/updating
-    heroku_app_name: hanashi-san
-    # An optional buildpack to use when creating the heroku application
-    buildpack: # optional
-    # The branch that you would like to deploy to Heroku
-    branch: master
-    # Set this to true if you don't want to use --force when switching branches
-    dontuseforce: # optional
-    # Will deploy using Dockerfile in project root.
-    usedocker: true
-    # Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled
-    docker_heroku_process_type: # optional, default is web
-    # Set if your app is located in a subdirectory.
-    appdir: # optional, default is
 on:
     push:
         branches:
@@ -27,5 +6,25 @@ on:
         branches:
             - master
 jobs:
-    my_first_job:
+    deploy:
         name: Deploy to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.0.4
+        with:
+            # This will be used for authentication. You can find it in your heroku homepage account settings
+            heroku_api_key: e2a19921-3878-477f-bb83-27662dc28b5c
+            # Email that you use with heroku
+            heroku_email: peter.chau.esq@gmail.com
+            # The appname to use for deploying/updating
+            heroku_app_name: hanashi-san
+            # An optional buildpack to use when creating the heroku application
+            buildpack: # optional
+            # The branch that you would like to deploy to Heroku
+            branch: master
+            # Set this to true if you don't want to use --force when switching branches
+            dontuseforce: # optional
+            # Will deploy using Dockerfile in project root.
+            usedocker: true
+            # Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled
+            docker_heroku_process_type: # optional, default is web
+            # Set if your app is located in a subdirectory.
+            appdir: # optional, default is
