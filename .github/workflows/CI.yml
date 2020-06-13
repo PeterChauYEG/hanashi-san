@@ -1,3 +1,5 @@
+name: CI
+
 on:
     push:
         branches:
@@ -8,8 +10,11 @@ on:
 jobs:
     deploy:
         name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.0.4
-        with:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Deploy to Heroku
+          uses: AkhileshNS/heroku-deploy@v3.0.4
+          with:
             # This will be used for authentication. You can find it in your heroku homepage account settings
             heroku_api_key: e2a19921-3878-477f-bb83-27662dc28b5c
             # Email that you use with heroku
