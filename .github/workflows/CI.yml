@@ -26,3 +26,6 @@ on:
     pull_request:
         branches:
             - master
+jobs:
+    my_first_job:
+        name: Deploy to Heroku
