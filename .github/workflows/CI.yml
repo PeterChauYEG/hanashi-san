@@ -19,3 +19,10 @@ with:
     docker_heroku_process_type: # optional, default is web
     # Set if your app is located in a subdirectory.
     appdir: # optional, default is
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+        branches:
+            - master
