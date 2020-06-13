@@ -18,4 +18,22 @@
     # Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled
     docker_heroku_process_type: # optional, default is web
     # Set if your app is located in a subdirectory.
-    appdir: # optional, default is 
+    appdir: # optional, default is
+
+name: Deploy to Heroku #set whatevername you want to your github job
+on: {} # set the events you would like to trigger this job
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
+        id: heroku
+        uses: jctaveras/heroku-deploy@v1.0.0  # use the latest version of the action
+        with:
+          email: peter.chau.esq@gmail.com # your heroku email
+          api_key: e2a19921-3878-477f-bb83-27662dc28b5c # your  heroku api key
+          app_name: hanashi-san # you aplication name
+          dockerfile_path: . # set the path to the folder wher the Dokerfile is located
+          options: '' # Docker Build Options
