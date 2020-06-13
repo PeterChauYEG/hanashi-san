@@ -21,5 +21,5 @@ jobs:
             email: peter.chau.esq@gmail.com
             api_key: e2a19921-3878-477f-bb83-27662dc28b5c
             app_name: hanashi-san
-            dockerfile_path: 'dockerfile'
+            dockerfile_path: ./dockerfile
 #            options: '' # Docker Build Options
