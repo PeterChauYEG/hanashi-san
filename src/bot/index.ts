@@ -1,13 +1,17 @@
 import * as Discord from 'discord.js'
+import {TasksService} from "../tasks/tasks.service";
+import Question from "../interfaces/Question";
 
 const TOKEN = process.env.TOKEN;
 
 export default class Bot {
-    public client: Discord.Client
-    public channel
+    private client: Discord.Client
+    private channel
+    private tasksService: TasksService
 
-    constructor() {
+    constructor(tasksService: TasksService) {
         this.client = new Discord.Client();
+        this.tasksService = tasksService
     }
 
     async init(): Promise<void> {
@@ -20,9 +24,9 @@ export default class Bot {
         });
 
         this.client.on('message', msg => {
-            if (msg.content === 'ping') {
-                msg.reply('pong');
-                msg.channel.send('pong');
+            if (msg.content === 'question') {
+                const question: Question = this.tasksService.getQuestion()
+                msg.reply(question.message);;
             }
         });
     }
