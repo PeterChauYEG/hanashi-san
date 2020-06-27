@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const tasksService: TasksService = app.get(TasksService)
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
   const bot: Bot = new Bot(tasksService)
   await bot.init()
 }
