@@ -32,6 +32,8 @@ const questions: Question[] = [
     questionFactory('あしたは日本語のクラスがありますか?'),
     questionFactory('マキドナルドはどこですか?'),
     questionFactory('きのう何時間ねましたか?'),
+    questionFactory('おしごとはなんですか?'),
+    questionFactory('おしごとは何ですか?'),
 ]
 
 export default questions
